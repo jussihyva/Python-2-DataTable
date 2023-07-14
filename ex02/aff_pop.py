@@ -6,9 +6,9 @@ import sys
 
 def format_number(value,  pos):
     if value >= 1000000:
-        formatter = '{:1.1f}M'.format(value*0.000_001)
+        formatter = '{:1.0f}M'.format(value*0.000_001)
     elif value >= 1000:
-        formatter = '{:1.0f}K'.format(value*0.001)
+        formatter = '{:1.0f}k'.format(value*0.001)
     else:
         formatter = '{:1.0f}'.format(value)
     return formatter
@@ -43,7 +43,6 @@ def main(argv):
         (y_min, y_max) = ax.get_ylim()
         (x_min, x_max) = ax.get_xlim()
         plt.legend(loc='lower right')
-        formatter:FuncFormatter = FuncFormatter(format_number)
         plt.title('Population projections')
         plt.ylabel('Population')
         plt.xlabel('Year')
