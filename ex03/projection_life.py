@@ -2,6 +2,7 @@ from load_csv import load
 import pandas as pd
 import matplotlib.pyplot as plt
 import sys
+import seaborn  as sns
 
 def main(argv):
     '''
@@ -39,7 +40,8 @@ relation to the gross national product of the year 1900 for each country.
     fig, ax = plt.subplots()
     df_income_and_life_expectanc.dropna(inplace=True)
     df_income_and_life_expectanc = df_income_and_life_expectanc.astype({'income':int})
-    ax.scatter(df_income_and_life_expectanc['income'], df_income_and_life_expectanc['life_expectancy'])
+    # ax.scatter(df_income_and_life_expectanc['income'], df_income_and_life_expectanc['life_expectancy'])
+    sns.scatterplot(data=df_income_and_life_expectanc,  x='income', y='life_expectancy')
     ax.set_xscale(value='log')
     plt.show()
 
